@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default (dark) theme -->
+
+    <style name="DialogWindowTitleText" parent="@android:style/Theme.DeviceDefault.Dialog" >
+        <item name="android:windowTitleStyle">@android:style/TextAppearance.Medium</item>
+    </style>
+
+    <style name="DialogWindowTitleText.Multiline" parent="DialogWindowTitleText" >
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <!-- Light theme -->
+
+    <style name="DialogWindowTitleText.Light" parent="@android:style/Theme.DeviceDefault.Light.Dialog" >
+        <item name="android:windowTitleStyle">@android:style/TextAppearance.Medium</item>
+    </style>
+
+    <style name="DialogWindowTitleText.Light.Multiline" parent="DialogWindowTitleText.Light" >
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <!-- other -->
+
+    <style name="StatisticsText" parent="@android:style/TextAppearance.Theme.Dialog" >
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="HelpText" parent="@android:style/TextAppearance.Theme.Dialog" >
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- http://stackoverflow.com/questions/2176922/how-to-create-transparent-activity-in-android -->
+    <style name="DialogWindow.Transparent" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>

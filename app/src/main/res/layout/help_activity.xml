@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical" >
+
+            <TextView android:text="@string/help_purpose" android:textStyle="bold" style="@style/HelpText" />
+            <TextView android:text="@string/help1" style="@style/HelpText" />
+            <TextView android:text="@string/help2" style="@style/HelpText" />
+            <TextView android:text="@string/help3" style="@style/HelpText" />
+            <TextView android:text="@string/help4" style="@style/HelpText" />
+            <TextView android:text="@string/help5" style="@style/HelpText" />
+            <TextView android:text="@string/how_does_it_work" android:textStyle="bold" style="@style/HelpText" />
+            <TextView android:text="@string/help6" style="@style/HelpText" />
+            <TextView android:text="@string/help7" style="@style/HelpText" />
+            <TextView android:text="@string/help8" style="@style/HelpText" />
+            <TextView android:text="@string/compression_and_anonymity" android:textStyle="bold" style="@style/HelpText" />
+            <TextView android:text="@string/help9" style="@style/HelpText" />
+            <TextView android:text="@string/help10" style="@style/HelpText" />
+            <TextView android:text="@string/help11" style="@style/HelpText" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

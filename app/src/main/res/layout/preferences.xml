@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- debug submenu -->
+
+    <PreferenceScreen android:title="Debug"
+                      android:key="pref_debug_screen" >
+
+        <Preference android:key="pref_log_mark"
+                    android:title="Log mark"
+                    android:summary="write 'MARK' to log" />
+
+        <Preference android:key="pref_update_debug_db"
+                    android:title="Update debug DB" />
+
+        <CheckBoxPreference android:key="pref_tracing"
+                            android:title="Trace methods"
+                            android:defaultValue="false" />
+
+        <Preference android:key="pref_hprof"
+                    android:title="Dump hprof data" />
+
+        <CheckBoxPreference android:key="pref_tcpdump_wlan"
+                            android:title="Dump wlan (rmnet) traffic"
+                            android:summary="root and /data/local/tmp/tcpdump needed"
+                            android:defaultValue="false" />
+
+        <CheckBoxPreference android:key="pref_tcpdump_tun"
+                            android:title="Dump tun traffic"
+                            android:summary="root and /data/local/tmp/tcpdump needed"
+                            android:defaultValue="false" />
+
+        <CheckBoxPreference android:key="pref_dump_tun"
+                            android:title="Dump tun traffic"
+                            android:summary="no root!"
+                            android:defaultValue="false" />
+
+        <Preference android:key="pref_test"
+                    android:title="Test" />
+
+    </PreferenceScreen>
+
+    <!-- send feedback, stats, firewall screens -->
+
+    <Preference android:title="@string/send_feedback"
+                android:summary="@string/send_feedback_summary"
+                android:key="pref_feedback_screen" />
+
+    <Preference android:title="@string/statistics"
+                android:key="pref_stats_screen" />
+
+    <Preference android:title="@string/firewall"
+                android:summary="@string/firewall_summary"
+                android:key="pref_firewall_screen" />
+
+    <!-- malware, apk, social, ok ads -->
+
+    <PreferenceCategory android:title="@string/security_and_ads">
+
+        <CheckBoxPreference android:key="pref_block_malicious"
+                            android:title="@string/malicious_sites"
+                            android:summary="@string/block_malicious_sites"
+                            android:defaultValue="true" />
+
+        <CheckBoxPreference android:key="pref_block_apks"
+                            android:title="@string/apk_download"
+                            android:summary="@string/block_apk_download"
+                            android:defaultValue="true" />
+
+        <!-- social sumbmenu -->
+
+        <PreferenceScreen android:title="@string/social_networks"
+                          android:summary="@string/block_social_networks_spying"
+                          android:key="pref_social_screen" >
+
+            <CheckBoxPreference android:key="pref_social_vk"
+                                android:title="@string/social_type_vk"
+                                android:icon="@drawable/ic_vk"
+                                android:defaultValue="true" />
+
+            <CheckBoxPreference android:key="pref_social_fb"
+                                android:title="Facebook"
+                                android:icon="@drawable/icon_katana"
+                                android:defaultValue="true" />
+
+            <CheckBoxPreference android:key="pref_social_twitter"
+                                android:title="Twitter"
+                                android:icon="@drawable/ic_twitter"
+                                android:defaultValue="true" />
+
+            <CheckBoxPreference android:key="pref_social_gplus"
+                                android:title="Google+"
+                                android:icon="@drawable/ic_plus"
+                                android:defaultValue="true" />
+
+            <CheckBoxPreference android:key="pref_social_linkedin"
+                                android:title="LinkedIn"
+                                android:icon="@drawable/ic_linkedin"
+                                android:defaultValue="true" />
+
+            <CheckBoxPreference android:key="pref_social_moikrug"
+                                android:title="@string/social_type_moikrug"
+                                android:icon="@drawable/ic_moikrug"
+                                android:defaultValue="true" />
+
+            <CheckBoxPreference android:key="pref_social_ok"
+                                android:title="@string/social_type_ok"
+                                android:icon="@drawable/ic_odnoklassniki"
+                                android:defaultValue="true" />
+
+            <CheckBoxPreference android:key="pref_social_mailru"
+                                android:title="Mail.ru"
+                                android:icon="@drawable/ic_launcher"
+                                android:defaultValue="true" />
+
+            <CheckBoxPreference android:key="pref_social_other"
+                                android:title="@string/social_type_other"
+                                android:icon="@drawable/ic_other"
+                                android:defaultValue="true" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <!--
+    <PreferenceCategory android:title="@string/advertisement">
+        <CheckBoxPreference android:key="pref_allow_some_ads"
+                            android:title="@string/non_disturbing_ads"
+                            android:summary="@string/show_undisturbing_ads"
+                            android:defaultValue="false" />
+    </PreferenceCategory>
+    -->
+
+    <!-- privacy, compression -->
+
+    <PreferenceCategory android:title="@string/privacy_and_compression">
+
+        <CheckBoxPreference android:key="pref_use_compression"
+                            android:title="@string/use_compression"
+                            android:summary="@string/use_compression_summary"
+                            android:defaultValue="false" />
+
+        <CheckBoxPreference android:key="pref_anonymize"
+                            android:title="@string/anonymize"
+                            android:summary="@string/anonymize_summary"
+                            android:defaultValue="false" />
+
+        <!--
+        <CheckBoxPreference android:key="pref_anonymize_apps"
+                            android:title="@string/anonymize_apps"
+                            android:summary="@string/anonymize_apps_summary"
+                            android:defaultValue="false" />
+        -->
+
+        <app.ui.ImageListPreference android:key="pref_proxy_country"
+                                    android:title="@string/gateway_country"
+                                    android:icon="@drawable/country_auto"
+                                    android:dependency="pref_anonymize" />
+
+        <CheckBoxPreference android:key="pref_anonymize_only_browsers"
+                            android:title="@string/only_for_browsers"
+                            android:summary="@string/anonymize_and_compress_only_browsers"
+                            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- buy, restore subscription, help screen, advanced options -->
+
+    <PreferenceCategory android:title="@string/other">
+
+        <Preference android:title="@string/buy_subscription"
+                    android:key="pref_buy_subscription" />
+
+        <Preference android:title="@string/check_subscription"
+                    android:summary="@string/check_subscription_summary"
+                    android:key="pref_check_subscription" />
+
+        <Preference android:title="@string/help"
+                    android:key="pref_help_screen" />
+
+        <Preference android:title="@string/privacy_policy"
+            android:key="pref_privacy_screen" />
+
+        <!-- advanced submenu -->
+
+        <PreferenceScreen android:title="@string/advanced_options"
+                          android:summary="@string/advanced_summary"
+                          android:key="pref_advanced_screen" >
+
+            <!-- ui -->
+
+            <PreferenceCategory android:title="@string/ui"
+                                android:key="pref_advanced_ui" >
+
+                <CheckBoxPreference android:key="pref_use_light_theme"
+                                    android:defaultValue="false"
+                                    android:title="@string/use_light_theme"
+                                    android:summary="@string/use_light_theme_summary" />
+
+                <!--<CheckBoxPreference android:key="pref_use_en_lang"-->
+                                    <!--android:defaultValue="false"-->
+                                    <!--android:title="@string/use_en_lang"-->
+                                    <!--android:summary="@string/use_en_lang_summary" />-->
+
+                <!--<CheckBoxPreference android:key="pref_use_ru_lang"-->
+                                    <!--android:defaultValue="false"-->
+                                    <!--android:title="@string/use_ru_lang"-->
+                                    <!--android:summary="@string/use_ru_lang_summary" />-->
+
+            </PreferenceCategory>
+
+            <!-- securuty -->
+
+            <PreferenceCategory android:title="@string/security"
+                                android:key="pref_advanced_security" >
+
+                <!--
+                <CheckBoxPreference android:key="pref_block_apps_data"
+                                    android:title="@string/block_apps_data"
+                                    android:summaryOn="@string/block_apps_data_true"
+                                    android:summaryOff="@string/block_apps_data_false"
+                                    android:defaultValue="false" />
+                -->
+
+                <CheckBoxPreference android:key="pref_change_useragent"
+                                    android:title="@string/change_browser_id"
+                                    android:summary="@string/change_browser_id_summary"
+                                    android:defaultValue="false" />
+
+                <CheckBoxPreference android:key="pref_set_desktop_useragent"
+                                    android:title="@string/set_desktop_browser_id"
+                                    android:summary="@string/set_desktop_browser_id_summary"
+                                    android:defaultValue="false" />
+
+                <CheckBoxPreference android:key="pref_block_thirdparty_content"
+                                    android:title="@string/paranoid_privacy"
+                                    android:summary="@string/block_data_from_other_site"
+                                    android:defaultValue="false" />
+
+            </PreferenceCategory>
+
+            <!-- other -->
+
+            <PreferenceCategory android:title="@string/other"
+                                android:key="pref_advanced_other" >
+
+                <CheckBoxPreference android:key="pref_collect_debug_info"
+                                    android:title="@string/collect_debug_info"
+                                    android:summary="@string/collect_debug_info_summary"
+                                    android:defaultValue="false" />
+
+                <Preference android:title="@string/clean_caches"
+                            android:key="pref_clean_caches" />
+
+            </PreferenceCategory>
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <!--
+    <PreferenceScreen android:title="@string/help"
+                      android:key="pref_help_screen" >
+
+        <PreferenceCategory android:title="@string/help_purpose" >
+            <Preference android:key="pref_help1" android:summary="@string/help1" />
+            <Preference android:key="pref_help2" android:summary="@string/help2" />
+            <Preference android:key="pref_help3" android:summary="@string/help3" />
+            <Preference android:key="pref_help4" android:summary="@string/help4" />
+            <Preference android:key="pref_help5" android:summary="@string/help5" />
+        </PreferenceCategory>
+
+        <PreferenceCategory android:title="@string/how_does_it_work" >
+            <Preference android:key="pref_help6" android:summary="@string/help6" />
+            <Preference android:key="pref_help7" android:summary="@string/help7" />
+            <Preference android:key="pref_help8" android:summary="@string/help8" />
+        </PreferenceCategory>
+
+    </PreferenceScreen>
+    -->
+
+</PreferenceScreen>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="com.samsung.android.iap.permission.BILLING" />
+
+    <!-- для публикации в Samsung http://www.feelzdroid.com/2015/05/galaxy-specials-error-samsung-seller-office.html -->
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+
+    <application>
+        <meta-data
+            android:name="publisher"
+            android:value="samsung" />
+        <meta-data
+            android:name="billing_url"
+            android:value="https://billing.webguard.app/samsung.php" />
+    </application>
+
+</manifest>

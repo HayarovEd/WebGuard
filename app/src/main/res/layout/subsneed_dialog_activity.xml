@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:minHeight="200dp"
+              tools:context="app.ui.SubsNeedDialogActivity" >
+
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="5dp"
+                  android:layout_marginRight="5dp"
+                  android:layout_marginBottom="7dp"
+                  android:layout_marginTop="7dp"
+                  android:paddingBottom="5dp"
+                  style="@android:style/TextAppearance.Theme.Dialog"
+                  android:id="@+id/need_subscription_text"
+                  android:text="@string/need_subscription_text" />
+
+    </ScrollView>
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tryfree_button"
+            android:text="@string/tryfree"
+            android:onClick="onTryFreeClick" />
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buy_subscription_button"
+            android:text="@string/buy_subscription"
+            android:onClick="onBuySubscriptionClick" />
+
+</LinearLayout>

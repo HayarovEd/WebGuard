@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#00FFFFFF" >
+
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="4dp"
+                  android:clickable="true"
+                  android:id="@+id/il_llClickContainer" >
+
+        <LinearLayout android:id="@+id/linearLayout1"
+                      android:layout_width="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:layout_gravity="center_vertical" >
+
+            <ImageView android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"
+                       android:layout_gravity="center_vertical"
+                       android:id="@+id/il_img"
+                       android:layout_marginRight="15dp"
+                       android:layout_marginLeft="5dp" >
+            </ImageView>
+
+            <TextView android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:layout_gravity="center_vertical"
+                      android:id="@+id/il_txt"
+                      android:textSize="22dp"
+                      android:layout_marginLeft="5dp" >
+            </TextView>
+
+        </LinearLayout>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="0"
+                     android:layout_gravity="center_vertical"
+                     android:id="@+id/ckbox" />
+
+    </LinearLayout>
+</LinearLayout>

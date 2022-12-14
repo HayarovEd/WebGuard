@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" >
+
+    <!-- layout_weight work bad with preferences -->
+    <ListView android:id="@+id/android:list"
+              android:layout_width="match_parent"
+              android:layout_height="50sp" />
+<!--
+    <CheckBox android:id="@+id/appsBlockData"
+              android:key="pref_block_apps_data"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="15dp"
+              android:text="@string/block_apps_data"
+              android:defaultValue="false"
+              android:onClick="onBlockAppsDataCheckbox" />
+-->
+    <EditText android:id="@+id/appSearch"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:layout_marginTop="15dp"
+              android:drawableLeft="@android:drawable/ic_menu_search"
+              android:padding="5dp"
+              android:hint="@string/search_app_text"
+              android:inputType="textVisiblePassword" />
+
+    <ExpandableListView android:id="@+id/appsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:divider="@android:color/transparent"
+                        android:childDivider="@android:color/transparent"
+                        android:dividerHeight="15dp" />
+
+</LinearLayout>

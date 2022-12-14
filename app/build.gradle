@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+android {
+    ndkVersion '21.4.7075529'
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    signingConfigs {
+        webguard {
+            storeFile rootProject.file('WebGuard.keystore')
+            keyAlias 'webguard'
+            keyPassword 'qwerty'
+            storePassword 'qwerty'
+        }
+    }
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
+    defaultConfig {
+        applicationId 'app.webguard'
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 93
+        versionName '1.6.3'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.webguard
+
+        vectorDrawables.useSupportLibrary = true
+
+        multiDexEnabled = true // https://developer.android.com/studio/build/multidex.html
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.webguard
+            proguardFile rootProject.file('proguard.pro')
+        }
+    }
+
+    flavorDimensions 'tier'
+    productFlavors {
+        google {
+        }
+        samsung {
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    flavorDimensions 'tier'
+    productFlavors {
+        dev {
+        }
+        prod {
+        }
+    }
+
+    //Apache HTTP Client Removal
+    //https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html
+    useLibrary 'org.apache.http.legacy'
+
+}
+dependencies {
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.3.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.13.1'
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+//    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+//    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.github.yandextaxitech:binaryprefs:1.0.0'
+    samsungImplementation project(':IAP5Helper')
+
+}

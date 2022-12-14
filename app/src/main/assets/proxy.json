@@ -1,0 +1,9 @@
+{
+"ttl":3600,
+"cur_server":{"domain":"proxy.auto.webguardproxy.com","ip":261032368,"country":"auto"},
+"last_update_time":1405673825388,
+"servers":[
+    {"domain":"proxy.auto.webguardproxy.com","ip":261032368,"country":"auto"},
+    {"domain":"proxy.de.webguardproxy.com","ip":261032368,"country":"de"},
+    {"domain":"proxy.fr.webguardproxy.com","ip":1641636439,"country":"fr"}]
+}

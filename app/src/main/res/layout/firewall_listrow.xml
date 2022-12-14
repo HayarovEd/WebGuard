@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                tools:context="app.ui.FirewallActivity" >
+                <!--android:paddingTop="5dp"-->
+                <!--android:paddingBottom="5dp"-->
+
+    <ImageView android:id="@+id/appIcon"
+               android:layout_width="@android:dimen/app_icon_size"
+               android:layout_height="@android:dimen/app_icon_size"
+               android:src="@drawable/ic_launcher"
+               android:layout_marginRight="11dp"
+               android:scaleType="fitCenter" />
+               <!--android:background="#ffff0000"-->
+
+    <TextView android:id="@+id/appText"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_gravity="center_vertical"
+              android:ellipsize="none"
+              android:maxLines="3"
+              android:scrollHorizontally="false"
+              android:inputType="textMultiLine|textNoSuggestions"
+              android:text="App"
+              android:textSize="14sp" />
+              <!--android:layout_gravity="center_vertical"-->
+              <!--android:ellipsize="end"-->
+              <!--android:singleLine="true"-->
+              <!--android:drawableLeft="@drawable/ic_launcher"-->
+              <!--android:drawablePadding="5dp"-->
+
+    <!-- default true, also see default values in FirewallActivity.AppItem -->
+
+    <CheckBox android:id="@+id/appAllowMobile"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginLeft="4dp"
+              android:layout_marginRight="4dp"
+              android:button="@drawable/mobile_checkbox" />
+              <!--android:checked="true"-->
+
+    <CheckBox android:id="@+id/appAllowWifi"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginRight="10dp"
+              android:button="@drawable/wifi_checkbox" />
+              <!--android:checked="true"-->
+
+</LinearLayout>

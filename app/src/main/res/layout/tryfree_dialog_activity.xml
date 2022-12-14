@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:minHeight="200dp"
+              tools:context="app.ui.TryFreeDialogActivity" >
+
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="5dp"
+                  android:layout_marginRight="5dp"
+                  android:layout_marginBottom="7dp"
+                  android:layout_marginTop="7dp"
+                  android:paddingBottom="5dp"
+                  style="@android:style/TextAppearance.Theme.Dialog"
+                  android:id="@+id/tryfree_text"
+                  android:text="@string/tryfree_text" />
+
+    </ScrollView>
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/refresh_button"
+            android:text="@string/refresh"
+            android:onClick="onRefreshClick" />
+
+    <ImageView android:id="@+id/captcha"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:scaleType="fitXY"
+               android:minHeight="100dp" />
+
+    <EditText android:id="@+id/captcha_text"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="text|textNoSuggestions" />
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirm_button"
+            android:text="@string/confirm"
+            android:onClick="onCodeClick" />
+
+</LinearLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" >
+
+    <!--
+    <TextView android:text="@string/help_purpose"
+              android:textStyle="bold"
+              style="@style/HelpText" />
+    -->
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/ads_blocked_layout"
+                  android:orientation="horizontal" >
+
+        <TextView android:layout_width="0px"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="2"
+                  android:text="@string/ads_blocked"
+                  style="@style/StatisticsText" />
+
+        <TextView android:layout_width="0px"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:id="@+id/ads_blocked"
+                  android:text="0"
+                  style="@style/StatisticsText" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal" >
+
+        <TextView android:layout_width="0px"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="2"
+                  android:text="@string/malware_blocked"
+                  style="@style/StatisticsText" />
+
+        <TextView android:layout_width="0px"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:id="@+id/malware_blocked"
+                  android:text="0"
+                  style="@style/StatisticsText" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal" >
+
+        <TextView android:layout_width="0px"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="2"
+                  android:text="@string/traffic_saved"
+                  style="@style/StatisticsText" />
+
+        <TextView android:layout_width="0px"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:id="@+id/traffic_saved"
+                  android:text="0"
+                  style="@style/StatisticsText" />
+
+    </LinearLayout>
+
+<!--
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal" >
+
+        <TextView android:layout_width="0px"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="2"
+                  android:text="@string/proxy_traffic_saved"
+                  style="@style/StatisticsText" />
+
+        <TextView android:layout_width="0px"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:id="@+id/proxy_traffic_saved"
+                  android:text="0"
+                  style="@style/StatisticsText" />
+
+    </LinearLayout>
+-->
+
+</LinearLayout>

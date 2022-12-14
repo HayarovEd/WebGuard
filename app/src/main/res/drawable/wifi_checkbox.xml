@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- https://github.com/android/platform_packages_apps_settings/tree/master/res/drawable-xhdpi -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:drawable="@drawable/wifi_checked" />
+    <item android:state_checked="false" android:drawable="@drawable/wifi_unchecked" />
+</selector>

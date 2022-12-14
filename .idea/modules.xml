@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/WebGuard.iml" filepath="$PROJECT_DIR$/WebGuard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IAP5Helper/WebGuard.IAP5Helper.iml" filepath="$PROJECT_DIR$/.idea/modules/IAP5Helper/WebGuard.IAP5Helper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IAP5Helper/WebGuard.IAP5Helper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/IAP5Helper/WebGuard.IAP5Helper.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IAP5Helper/WebGuard.IAP5Helper.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/IAP5Helper/WebGuard.IAP5Helper.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WebGuard.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WebGuard.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WebGuard.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WebGuard.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WebGuard.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WebGuard.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>

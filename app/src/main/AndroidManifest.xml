@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.webguard">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- http://stackoverflow.com/questions/6733163/notificationmanager-notify-fails-with-securityexception -->
+    <!-- http://stackoverflow.com/questions/2784441/trying-to-start-a-service-on-boot-on-android -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- для публикации в Google Play -->
+    <!--<uses-permission android:name="com.android.vending.BILLING" />-->
+
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+
+    <!-- для публикации в Samsung http://www.feelzdroid.com/2015/05/galaxy-specials-error-samsung-seller-office.html -->
+    <!--<uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />-->
+
+    <application
+        android:name="app.webguard.App"
+        android:icon="@drawable/icon"
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@android:style/Theme.DeviceDefault">
+        <!--android:persistent="true"-->
+
+        <meta-data
+            android:name="policy_version"
+            android:value="1" />
+        <meta-data
+            android:name="terms_version"
+            android:value="1" />
+        <!--<meta-data android:name="publisher" android:value="debug" />-->
+        <!--<meta-data-->
+            <!--android:name="publisher"-->
+            <!--android:value="google" />-->
+        <meta-data
+            android:name="update_retry_time"
+            android:value="10800" />
+        <!--<meta-data android:name="update_retry_time" android:value="300" />-->
+        <meta-data
+            android:name="update_url"
+            android:value="https://app.webguard.app/" />
+        <meta-data
+            android:name="terms_url"
+            android:value="https://webguard.app/legal/eula" />
+        <meta-data
+            android:name="privacy_url"
+            android:value="https://webguard.app/legal/privacy" />
+        <!--<meta-data-->
+            <!--android:name="billing_url"-->
+            <!--android:value="https://billing.webguard.app/" />-->
+        <meta-data
+            android:name="subs_url"
+            android:value="https://billing.webguard.app/subs.php" />
+        <meta-data
+            android:name="free_url"
+            android:value="https://billing.webguard.app/free.php" />
+        <meta-data
+            android:name="promo_url"
+            android:value="https://billing.webguard.app/promo.php" />
+        <meta-data
+            android:name="recovery_url"
+            android:value="https://billing.webguard.app/recovery.php" />
+        <!--<meta-data android:name="debug_url" android:value="http://192.168.1.161/" />-->
+
+        <!-- activities -->
+
+        <!-- TODO XXX add caller check to PromptActivity and OptionsActivity ? -->
+        <!-- TODO XXX launchMode="singleTask" to all DialogWindowTitleText.Multiline activities ? -->
+
+        <activity
+            android:name="app.ui.StartActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+        <activity android:exported="true"
+                  android:name="app.ui.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+         -->
+
+        <activity
+            android:name="app.ui.LicenseActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogWindowTitleText.Multiline" />
+
+        <activity
+            android:name="app.ui.PromptActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!--android:noHistory="true"-->
+
+        <activity
+            android:name="app.ui.OptionsActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:exported="true"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!--android:clearTaskOnLaunch="true" android:exported="true" android:finishOnTaskLaunch="true"
+                        android:launchMode="singleTask"-->
+
+        <activity
+            android:name="app.ui.SendMessageActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:exported="false"
+            android:label="@string/message_to_developer"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <!--android:windowSoftInputMode="adjustResize"-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.ui.OptionsActivity" />
+        </activity>
+
+
+        <activity
+            android:name="app.ui.StatisticsActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:exported="false"
+            android:label="@string/statistics"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.ui.OptionsActivity" />
+        </activity>
+
+        <activity
+            android:name="app.ui.FirewallActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:exported="false"
+            android:label="@string/firewall"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.ui.OptionsActivity" />
+        </activity>
+
+        <activity
+            android:name="app.ui.HelpActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:exported="false"
+            android:label="@string/help"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.ui.OptionsActivity" />
+        </activity>
+
+        <!-- dialogs -->
+
+        <activity
+            android:name="app.ui.NotifyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogWindowTitleText.Multiline" />
+
+        <activity
+            android:name="app.ui.MessageDialogActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogWindowTitleText.Multiline" />
+
+        <activity
+            android:name="app.ui.BuyDialogActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogWindowTitleText.Multiline" />
+
+        <activity
+            android:name="app.ui.TryFreeDialogActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogWindowTitleText.Multiline" />
+
+        <activity
+            android:name="app.ui.PromoDialogActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogWindowTitleText.Multiline" />
+
+        <activity
+            android:name="app.ui.SubsNeedDialogActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogWindowTitleText.Multiline" />
+
+        <!-- services -->
+
+        <service
+            android:name="app.netfilter.FilterVpnService"
+            android:exported="true"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+
+        <!--<service-->
+        <!--android:name="app.netfilter.MainVpnService"-->
+        <!--android:exported="false" />-->
+
+        <!-- XXX TODO why android:exported="false" ? -->
+        <service
+            android:name="app.LogService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="app.webguard.action.LOG_ERROR" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="app.UpdaterService"
+            android:exported="false" />
+
+        <service
+            android:name="app.AppService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name="app.AppUidService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name="app.TimerService"
+            android:exported="false" />
+
+        <service
+            android:name="app.PromptActivityStartService"
+            android:exported="false" />
+
+        <!-- XXX TODO may be add intent-filter ? -->
+        <service
+            android:name="app.PolicyReloadService"
+            android:exported="true" />
+
+        <!-- receivers -->
+
+        <!--https://medium.com/@jordan_mohi/direct-boot-on-android-nougat-71f06c4a7c9e-->
+        <!--android:directBootAware="true"-->
+        <receiver
+            android:name="app.BootCompletedReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <!-- http://stackoverflow.com/questions/24882861/android-intent-action-boot-completed-intent-is-not-received-at-restart-or-reb -->
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- XXX TODO add CONNECTIVITY_CHANGE_IMMEDIATE DATA_ACTIVITY_CHANGE BACKGROUND_DATA_SETTING_CHANGED ? -->
+        <!--<receiver-->
+        <!--android:name="app.NetworkStateChangeReceiver"-->
+        <!--android:exported="true">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.net.conn.CONNECTIVITY_STATE" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <receiver
+            android:name="app.MyUpdateReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- can add other (PACKAGE_REPLACED PACKAGE_CHANGED) but not need (see docs) -->
+        <receiver
+            android:name="app.AppReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_CHANGED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- on some devices can be called multiple times in min! -->
+        <!--
+        <receiver android:exported="true"
+                  android:name="app.TimeChangeReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <receiver
+            android:name="app.ReferalReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
